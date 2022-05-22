@@ -195,3 +195,55 @@ function flashColor1() {
   changeColor.style.backgroundColor = "purple";
   diff.innerHTML = "congrats you winnn!!<br><br>Press Any Key To Restart"
 }
+//these events are responsible of clicking the blocks
+green.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(1);
+    check();
+    sound1();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+red.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(2);
+    check();
+    sound2();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+yellow.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(3);
+    check();
+    sound3();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+blue.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(4);
+    check();
+    sound4();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
