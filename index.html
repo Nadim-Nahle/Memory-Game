@@ -6,36 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon says</title>
     <link rel="stylesheet" href="styles/style.css"/>
-    <audio id="blue"> <source src="/assets/sounds/blue.mp3"> </audio>
-    <link rel="stylesheet" href="styles/style.css"/>
-    <audio id="yellow"> <source src="/assets/sounds/yellow.mp3"> </audio>
-    <link rel="stylesheet" href="styles/style.css"/>
-    <audio id="red"> <source src="/assets/sounds/red.mp3"> </audio>
-    <link rel="stylesheet" href="styles/style.css"/>
-    <audio id="green"> <source src="/assets/sounds/green.mp3"> </audio>
+    <audio id="clip1"> <source src="/assets/sounds/blue.mp3"> </audio>
+    <audio id="clip2"> <source src="/assets/sounds/yellow.mp3"> </audio>
+    <audio id="clip3"> <source src="/assets/sounds/red.mp3"> </audio>
+    <audio id="clip4"> <source src="/assets/sounds/green.mp3"> </audio>
+    <audio id="wrong"> <source src="/assets/sounds/wrong.mp3"> </audio>
 </head>
 <body>
-    <div class="container">
-        <div class="level">
-            <h1>Level 1</h1>
+    <!-- Start Color -->
+    <div id="color">
+        <!-- Start Main Container -->
+        <div class="container">
+            <div id="diff">
+                <p>Level</p><h1 id="level">1</h1>
+            </div>
+            <div class="first-column">
+                <div id="green">
+                    
+                </div>
+                <div id="red">
+                    
+                </div>
+            </div>
+            <div class="second-column">
+                <div id="yellow">
+                    
+                </div>
+                <div id="blue">
+                    
+                </div>
+            </div>
+            <div id="chooseLevel"></div>
         </div>
-        <div class="first-column">
-            <div class="green">
-                
-            </div>
-            <div class="red">
-                
-            </div>
-        </div>
-        <div class="second-column">
-            <div class="yellow">
-                
-            </div>
-            <div class="blue">
-                
-            </div>
-        </div>
+        <!-- End Main Container -->
     </div>
+    <!-- End Color -->
     <script src="index.js"></script>
 </body>
 </html>

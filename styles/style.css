@@ -2,8 +2,13 @@
     font-family: arcade-font;
     src: url(../assets/fonts/PressStart2P-Regular.ttf);
   }
-body{
+
+html, body {
+    height: 100%;
+}
+#color{
     background-color: #041D37;
+    height: 100%;
 }
 .container{
     display: flex;
@@ -11,6 +16,7 @@ body{
     align-items: center;
     justify-content: center;
     align-content: center;
+    padding-top: 10px;
 }
 .first-column{
     display: flex;
@@ -18,7 +24,7 @@ body{
     align-items: center;
     align-content: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .second-column{
     display: flex;
@@ -27,7 +33,7 @@ body{
     align-content: center;
     justify-content: center;
 }
-.green{
+#green{
     background-color: green;
     height: 22vh;
     width:22vh;
@@ -36,14 +42,14 @@ body{
     border: 5px solid black;
  
 }
-.red{
+#red{
     background-color: red;
     height: 22vh;
     width:22vh;
     border-radius: 25px;
     border: 5px solid black;
 }
-.yellow{
+#yellow{
     background-color: yellow;
     height: 22vh;
     width:22vh;
@@ -53,7 +59,7 @@ body{
     border: 5px solid black;
 
 }
-.blue{
+#blue{
     background-color: blue;
     height: 22vh;
     width:22vh;
@@ -61,11 +67,25 @@ body{
     border-radius: 25px;
     border: 5px solid black;
 }
-.level > h1{
-    font-size: 5vh;
+#diff{
+    font-size: 5.2vh;
     color: white;
     font-family: arcade-font;
+    margin-top: 35px;
+    display: flex;
+    text-align: center;
 }
-.level{
-    margin-top: 40px;
+#diff >h1{
+    font-size: 5.5vh;
+    padding-top: 11px;
+    padding-left: 10px;;
+}
+#chooseLevel{
+    font-size: 4.5vh;
+    padding-top: 11px;
+    padding-left: 10px;
+    color: white;
+    font-family: arcade-font;
+    text-align: center;
+    padding-top: 60px;
 }
