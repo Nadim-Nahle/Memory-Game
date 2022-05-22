@@ -41,6 +41,7 @@ function neww(){
   chooseLevel.innerHTML="press a number between 1 & 9 to choose max level";
   SelectLevel();
 }
+//this function let the user choose the level
 function SelectLevel(){
   document.addEventListener('keypress', (event) =>{
     if (event.key ==="1"){
@@ -86,4 +87,27 @@ function SelectLevel(){
   })
 }
 
+
+//when this function is called the game begins
+function startGame() {
+  chooseLevel.innerHTML="";
+  clearBackgroundColor();
+  win = false;
+  sequence = [];
+  playerSequence = [];
+  counter = 0;
+  intervalId = 0;
+  playerTurn = 1;
+  good = true;
+  level.innerHTML = 1;
+  for (var i = 0; i < 20; i++) {
+    
+    sequence.push(Math.floor(Math.random() * 4) + 1);
+    
+  }
+  computerTurn = true;
+
+  intervalId = setInterval(gameTurn, 800);
+  
+}
 
