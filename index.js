@@ -111,3 +111,184 @@ function startGame() {
   
 }
 
+// this function determine if it is the cpu or user turn
+function gameTurn() {
+  gameRunning = false;
+
+  if (counter == playerTurn) {
+    clearInterval(intervalId);
+    computerTurn = false;
+    clearColor();
+    gameRunning = true;
+  }
+
+  if (computerTurn) {
+    clearColor();
+    setTimeout(() => {
+      if (sequence[counter] == 1) sound1();
+      if (sequence[counter] == 2) sound2();
+      if (sequence[counter] == 3) sound3();
+      if (sequence[counter] == 4) sound4();
+      counter++;
+    }, 200);
+  }
+}
+// these function play the sudio files for each block
+function sound1() {
+  if (audio) {
+    let audio = document.getElementById("clip4");
+    audio.play();
+  }
+  audio = true;
+  green.style.backgroundColor = "grey";
+}
+
+function sound2() {
+  if (audo) {
+    let audio = document.getElementById("clip3");
+    audio.play();
+  }
+  audio = true;
+  red.style.backgroundColor = "grey";
+}
+
+function sound3() {
+  if (audio) {
+    let audio = document.getElementById("clip2");
+    audio.play();
+  }
+  audio = true;
+  yellow.style.backgroundColor = "grey";
+}
+
+function sound4() {
+  if (audio) {
+    let audio = document.getElementById("clip1");
+    audio.play();
+  }
+  audio = true;
+  blue.style.backgroundColor = "grey";
+}
+function sound5() {
+  if (audio) {
+    let audio = document.getElementById("wrong");
+    audio.play();
+  }
+  audio = true;
+}
+// this function return the blocks to their initial color
+function clearColor() {
+  green.style.backgroundColor = "green";
+  red.style.backgroundColor = "red";
+  yellow.style.backgroundColor = "yellow";
+  blue.style.backgroundColor = "blue";
+}
+//this function return the background to it's initial color
+function clearBackgroundColor() {
+  changeColor.style.backgroundColor = "#041D37";
+}
+function flashColor() {
+  changeColor.style.backgroundColor = "red";
+  sound5();
+}
+function flashColor1() {
+  changeColor.style.backgroundColor = "purple";
+  diff.innerHTML = "congrats you winnn!!<br><br>Press Any Key To Restart"
+}
+//these events are responsible of clicking the blocks
+green.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(1);
+    check();
+    sound1();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+red.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(2);
+    check();
+    sound2();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+yellow.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(3);
+    check();
+    sound3();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+
+blue.addEventListener('click', (event) => {
+  if (gameRunning) {
+    playerSequence.push(4);
+    check();
+    sound4();
+    if(!win) {
+      setTimeout(() => {
+        clearColor();
+      }, 300);
+    }
+  }
+})
+//this function check if the player won
+function check() {
+  if (playerSequence[playerSequence.length - 1] !== sequence[playerSequence.length - 1]){
+    good = false;
+    diff.innerHTML=("game over, press any key to start again")
+    document.addEventListener('keypress', (event) => {
+      startGame();
+    })
+  }
+
+  if (playerSequence.length == selectLevel && good) {
+    winGame();
+  }
+
+  if (good == false) {
+    flashColor();
+    
+    setTimeout(() => {  
+    clearColor();
+    clearBackgroundColor();
+
+    }, 800);
+
+    audio = false;
+  }
+
+  if (playerTurn == playerSequence.length && good && !win) {
+    playerTurn++;
+    playerSequence = [];
+    computerTurn = true;
+    counter = 0;
+    level.innerHTML = playerTurn;
+    intervalId = setInterval(gameTurn, 800);
+  }
+
+}
+//this is the win function that restart the game
+function winGame() {
+  flashColor1();
+  gameRunning = false;
+  win = true;
+  document.addEventListener('keypress', (event) => {
+      startGame();
+  })
+}
