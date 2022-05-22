@@ -247,3 +247,48 @@ blue.addEventListener('click', (event) => {
     }
   }
 })
+//this function check if the player won
+function check() {
+  if (playerSequence[playerSequence.length - 1] !== sequence[playerSequence.length - 1]){
+    good = false;
+    diff.innerHTML=("game over, press any key to start again")
+    document.addEventListener('keypress', (event) => {
+      startGame();
+    })
+  }
+
+  if (playerSequence.length == selectLevel && good) {
+    winGame();
+  }
+
+  if (good == false) {
+    flashColor();
+    
+    setTimeout(() => {  
+    clearColor();
+    clearBackgroundColor();
+
+    }, 800);
+
+    audio = false;
+  }
+
+  if (playerTurn == playerSequence.length && good && !win) {
+    playerTurn++;
+    playerSequence = [];
+    computerTurn = true;
+    counter = 0;
+    level.innerHTML = playerTurn;
+    intervalId = setInterval(gameTurn, 800);
+  }
+
+}
+//this is the win function that restart the game
+function winGame() {
+  flashColor1();
+  gameRunning = false;
+  win = true;
+  document.addEventListener('keypress', (event) => {
+      startGame();
+  })
+}
