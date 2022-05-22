@@ -176,3 +176,22 @@ function sound5() {
   }
   audio = true;
 }
+// this function return the blocks to their initial color
+function clearColor() {
+  green.style.backgroundColor = "green";
+  red.style.backgroundColor = "red";
+  yellow.style.backgroundColor = "yellow";
+  blue.style.backgroundColor = "blue";
+}
+//this function return the background to it's initial color
+function clearBackgroundColor() {
+  changeColor.style.backgroundColor = "#041D37";
+}
+function flashColor() {
+  changeColor.style.backgroundColor = "red";
+  sound5();
+}
+function flashColor1() {
+  changeColor.style.backgroundColor = "purple";
+  diff.innerHTML = "congrats you winnn!!<br><br>Press Any Key To Restart"
+}
